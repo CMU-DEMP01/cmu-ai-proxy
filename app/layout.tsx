@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import ClientWrapper from './components/ClientWrapper';
 
 export const viewport: Viewport = {
-  themeColor: "#2563eb",
+  themeColor: "#4338ca",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -13,13 +13,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Mobile AI Proxy",
-  description: "PWA proxy app for AI endpoints",
+  title: "CMU Module",
+  description: "CMU Module for STT Live and Flashers",
   manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" }
+    ],
+    apple: [
+      { url: "/icons/apple-icon-180x180.png", sizes: "180x180", type: "image/png" }
+    ]
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Mobile AI Proxy"
+    title: "CMU Module"
   },
   formatDetection: {
     telephone: false

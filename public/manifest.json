@@ -1,12 +1,12 @@
 {
-  "name": "Mobile AI Proxy",
-  "short_name": "AIProxy",
-  "description": "Mobile AI Proxy Application",
+  "name": "CMU Module",
+  "short_name": "CMU Module",
+  "description": "CMU Module for STT Live and Flashers",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "background_color": "#4338ca",
+  "theme_color": "#4338ca",
   "scope": "/",
   "icons": [
     {
@@ -56,6 +56,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
