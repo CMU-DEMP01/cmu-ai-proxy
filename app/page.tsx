@@ -3,14 +3,21 @@
 import { Mic, Zap } from "lucide-react";
 
 export default function HomePage() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://192.168.2.120:7173';
+
   function openSTTLive() {
-    window.location.href = "/stt-live";
+    if (typeof window !== 'undefined') {
+      // Redirect to the STT live endpoint
+      window.location.href = `${baseUrl}/ctt/live`;
+    }
   }
 
   function openFlashers() {
-    window.location.href = "/flashers";
+    if (typeof window !== 'undefined') {
+      // Redirect to the flashers endpoint
+      window.location.href = `${baseUrl}/flashers`;
+    }
   }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-purple-100 flex items-center justify-center p-6">
       <div className="bg-white/80 backdrop-blur-xl p-10 rounded-2xl shadow-2xl max-w-md w-full text-center border border-gray-200">
