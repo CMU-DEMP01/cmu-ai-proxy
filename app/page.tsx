@@ -8,7 +8,7 @@ export default function HomePage() {
   function openSTTLive() {
     if (typeof window !== 'undefined') {
       // Redirect to the STT live endpoint
-      window.location.href = `${baseUrl}/ctt/live`;
+      window.location.href = `${baseUrl}/stt/live`;
     }
   }
 
