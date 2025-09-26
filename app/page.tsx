@@ -1,34 +1,12 @@
 "use client";
 
 export default function HomePage() {
-  async function openSTTLive() {
-    try {
-      const res = await fetch("/api/auth/link?target=ai1");
-      const data = await res.json();
-      if (data.url) {
-        // Direct redirect to STT Live URL
-        window.location.href = data.url;
-      } else {
-        console.error("Failed to get STT Live URL");
-      }
-    } catch (error) {
-      console.error("Error opening STT Live:", error);
-    }
+  function openSTTLive() {
+    window.location.href = "/stt-live";
   }
 
-  async function openFlashers() {
-    try {
-      const res = await fetch("/api/auth/link?target=ai2");
-      const data = await res.json();
-      if (data.url) {
-        // Direct redirect to Flashers URL
-        window.location.href = data.url;
-      } else {
-        console.error("Failed to get Flashers URL");
-      }
-    } catch (error) {
-      console.error("Error opening Flashers:", error);
-    }
+  function openFlashers() {
+    window.location.href = "/flashers";
   }
 
   return (
