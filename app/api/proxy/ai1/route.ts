@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const CMU_BASE_URL = process.env.CMU_BASE_URL || "http://192.168.2.120:7173";
+const CMU_BASE_URL = process.env.CMU_BASE_URL || "https://cmu-ai-proxy.vercel.app";
 
 // Define valid endpoints and their mappings
 const ENDPOINT_MAPPING: Record<string, string> = {
