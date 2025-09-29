@@ -5,33 +5,55 @@ import { useRouter } from "next/navigation";
 
 export default function FlashersPage() {
   const [loading, setLoading] = useState(true);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     async function loadFlashers() {
       try {
         const res = await fetch("/api/auth/link?target=ai2");
+        if (!res.ok) {
+          throw new Error(`Failed to fetch: ${res.status}`);
+        }
         const data = await res.json();
+
         if (data.url) {
           setUrl(data.url);
         } else {
-          router.push("/");
+          setError("No valid URL found.");
+          setTimeout(() => router.push("/"), 2000);
         }
-      } catch (error) {
-        console.error("Error loading Flashers:", error);
-        router.push("/");
+      } catch (err: any) {
+        console.error("Error loading Flashers:", err);
+        setError("Failed to load Flashers.");
+        setTimeout(() => router.push("/"), 2000);
       } finally {
         setLoading(false);
       }
     }
+
     loadFlashers();
   }, [router]);
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-pulse text-lg">Loading Flashers...</div>
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
+        <div className="animate-pulse text-xl font-semibold text-gray-700">
+          Loading Flashers...
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !url) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-red-50 to-pink-100">
+        <div className="text-center space-y-3">
+          <h1 className="text-2xl font-bold text-red-600">Error</h1>
+          <p className="text-gray-700">{error ?? "Unknown error occurred."}</p>
+          <p className="text-sm text-gray-500">Redirecting you back...</p>
+        </div>
       </div>
     );
   }
