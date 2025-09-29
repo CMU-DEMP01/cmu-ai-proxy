@@ -6,3 +6,13 @@ const withPWA = require("next-pwa")({
 module.exports = withPWA({
   reactStrictMode: true,
 });
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: "/flashers-proxy/:path*",
+        destination: "http://192.168.2.120:7173/flashers/:path*", 
+      },
+    ];
+  },
+};
