@@ -63,7 +63,7 @@ export default function STTLivePage() {
       <iframe
         src={url}
         className="w-full h-full border-0"
-        sandbox="allow-same-origin allow-scripts allow-forms allow-downloads"
+        sandbox="allow-same-origin allow-scripts allow-forms allow-downloads allow-scripts"
         loading="eager"
       />
     </div>

@@ -3,10 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 const CMU_BASE_URL = process.env.CMU_BASE_URL || "http://localhost:7173"; // <- backend URL, not your Vercel app
 
 const ENDPOINT_MAPPING: Record<string, string> = {
-  "/stt/live": "/stt/live",
-  "/live": "/stt/live",
-  "/": "/stt/live",
-  "": "/stt/live",
+  "/stt-live": "/stt-live",
+  "": "/stt-live", // default
   "/flasher": "/flasher",
   "/flashers": "/flasher",
 };
